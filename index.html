@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPI Prakarya-Kerajinan Kelas VII | PKBM Lembong Center</title>
+<style>
+:root{--green:#176b55;--teal:#087e8b;--cream:#fffaf0;--ink:#24333a;--gold:#f5bd4f;--mint:#e8f5ee;--blue:#e9f3ff;--purple:#f1eaff;--red:#b84646}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#e5f2e9,#fff7e5);font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.5}
+button,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 16px;font-weight:700;background:var(--green);color:white;box-shadow:0 3px 0 #0d4939;transition:.15s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+button.secondary{background:#e5eef0;color:#23424a;box-shadow:0 3px 0 #c3d4d8}button.gold{background:var(--gold);color:#49320b;box-shadow:0 3px 0 #d79b2d}button.purple{background:#7054b5;box-shadow:0 3px 0 #4f3a87}
+header{background:var(--green);color:white;padding:12px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:.2px}.brand small{display:block;font-weight:400;opacity:.9}
+.wrap{max-width:1050px;margin:auto;padding:18px}.screen{display:none;animation:appear .25s ease}.screen.active{display:block}@keyframes appear{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+.hero{min-height:72vh;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;background:var(--cream);border:1px solid #e6dec9;border-radius:24px;padding:clamp(20px,4vw,44px);box-shadow:0 12px 32px #304b3218}
+h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:10px 0 16px;color:#154e40}h2{color:#155c4b;margin-top:0}h3{margin:5px 0 8px}.eyebrow{color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:1.4px;font-size:.82rem}.visual{background:linear-gradient(145deg,#d8f0e2,#f8df9b);border-radius:22px;padding:20px;text-align:center;min-height:270px;display:flex;flex-direction:column;justify-content:center}.big-emoji{font-size:clamp(3rem,7vw,5.7rem);line-height:1.35}.chips{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.chip{background:#e3f1e9;border-radius:999px;padding:5px 11px;font-size:.88rem;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:white;border:1px solid #dce7dd;border-radius:18px;padding:17px;box-shadow:0 5px 16px #234b3010}.menu-card{text-align:left;min-height:140px;color:var(--ink);background:white;box-shadow:0 4px 0 #d3e4d8;border:1px solid #dce7dd}.menu-card .emoji{font-size:2.2rem;display:block}.menu-card strong{font-size:1.12rem;display:block}.menu-card span{font-size:.92rem;font-weight:400}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}.pill{display:inline-block;background:#e6f3eb;color:#175a46;padding:5px 10px;border-radius:99px;font-size:.85rem;font-weight:700}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}.tabs button{background:#e5eeee;color:#24454a;box-shadow:none}.tabs button.active{background:var(--teal);color:white}
+.material{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:start}.material-icon{background:#e8f5ec;border-radius:16px;min-height:100px;display:grid;place-items:center;font-size:3rem}.note{background:#fff4d7;border-left:5px solid var(--gold);padding:12px 14px;border-radius:8px;margin:14px 0}.muted{color:#52656a;font-size:.92rem}.navrow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}.choice-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.choice{background:#f7fbf8;color:var(--ink);border:2px solid #d5e4d9;box-shadow:none;text-align:left}.choice.selected{border-color:var(--teal);background:#e2f6f3}.choice.correct{border-color:#228650;background:#e4f6e9}.choice.wrong{border-color:#c84c4c;background:#fff0ef}
+.feedback{padding:12px;border-radius:12px;margin-top:12px;background:#edf5f4}.progress{height:8px;background:#dfe9e5;border-radius:99px;overflow:hidden;margin:10px 0}.progress div{height:100%;background:var(--teal);width:0;transition:width .2s}
+select,textarea{width:100%;padding:11px;border:1px solid #c9d9d0;border-radius:10px;background:white;color:var(--ink)}textarea{min-height:110px;resize:vertical}.field{margin:12px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.result{text-align:center;padding:25px;background:var(--mint);border-radius:18px}.score{font-size:3rem;font-weight:900;color:var(--green)}footer{text-align:center;padding:18px;color:#50615a;font-size:.82rem}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.grid.three{grid-template-columns:repeat(2,minmax(0,1fr))}.choice-list{grid-template-columns:1fr}.material{grid-template-columns:76px 1fr}.material-icon{font-size:2.3rem;min-height:76px}.wrap{padding:12px}}
+@media print{header,button,.navrow{display:none!important}.screen{display:block!important;page-break-after:always}.wrap{max-width:none}}
+</style>
+</head>
+<body>
+<header><div class="brand">🌿 PKBM LEMBONG CENTER<small>KOLAKA UTARA · Prakarya-Kerajinan Kelas VII</small></div><button class="secondary" id="soundBtn" aria-pressed="false">🔊 Suara: mati</button></header>
+<main class="wrap">
+<section class="screen active" id="splash">
+ <div class="hero">
+  <div><div class="eyebrow">Media Pembelajaran Interaktif · Fase D</div><h1>Mengenal Kerajinan Bahan Alam Semikeras/Keras</h1><p>Amati bahan alam di sekitar kita, kenali sifatnya, dan temukan ide untuk mengubahnya menjadi karya yang bermanfaat.</p><div class="chips"><span class="chip">🌱 Eksplorasi</span><span class="chip">🧩 Simulasi</span><span class="chip">✅ Kuis offline</span></div><p><strong>Untuk:</strong> Peserta didik Kelas VII / Program Paket B</p><button class="gold" onclick="go('menu');say('Selamat datang. Mari belajar kerajinan bahan alam.')">MULAI BELAJAR ➜</button></div>
+  <div class="visual"><div class="big-emoji">🧺 🪵 🥥 🪨</div><h2>Kreatif Berkarya dari Alam</h2><p>Bambu · Rotan · Kayu · Tempurung kelapa · Batu · Cangkang kerang</p><small>Gunakan bahan secara bijak dan jaga kelestarian lingkungan.</small></div>
+ </div>
+</section>
+<section class="screen" id="menu">
+ <div class="topline"><div><span class="eyebrow">Mulai dari sini</span><h2>Menu Utama</h2></div><span class="pill">Pilih aktivitas</span></div>
+ <div class="grid">
+  <button class="menu-card" onclick="go('materi')"><span class="emoji">📚</span><strong>1. Materi</strong><span>Pengertian, jenis, karakteristik, dan logo bahan alam.</span></button>
+  <button class="menu-card" onclick="startSimulation()"><span class="emoji">🧩</span><strong>2. Simulasi</strong><span>Cocokkan bahan alam dengan contoh penggunaannya.</span></button>
+  <button class="menu-card" onclick="startQuiz()"><span class="emoji">🎯</span><strong>3. Kuis Interaktif</strong><span>Jawab tiga soal dan lihat skor otomatis.</span></button>
+  <button class="menu-card" onclick="go('profil')"><span class="emoji">👩‍🏫</span><strong>4. Profil</strong><span>Identitas lembaga dan petunjuk penggunaan.</span></button>
+ </div>
+ <div class="note"><strong>Tujuan belajar:</strong> Setelah belajar, kamu dapat mengenali bahan alam semikeras/keras, menjelaskan sifatnya, mencocokkan bahan dengan produk, dan memilih bahan secara bertanggung jawab.</div>
+</section>
+<section class="screen" id="materi">
+ <div class="topline"><div><span class="eyebrow">Eksplorasi</span><h2>Mengenal Bahan Alam Semikeras/Keras</h2></div><button class="secondary" onclick="go('menu')">⌂ Menu utama</button></div>
+ <div class="tabs"><button class="active" data-tab="pengertian" onclick="showTab('pengertian',this)">A. Pengertian</button><button data-tab="semikeras" onclick="showTab('semikeras',this)">B. Semikeras</button><button data-tab="keras" onclick="showTab('keras',this)">C. Keras</button><button data-tab="logo" onclick="showTab('logo',this)">D. Logo bahan alam</button></div>
+ <div id="tabContent"></div>
+ <div class="navrow"><button class="secondary" onclick="go('menu')">← Menu utama</button><button onclick="startSimulation()">Lanjut ke Simulasi →</button></div>
+</section>
+<section class="screen" id="simulasi">
+ <div class="topline"><div><span class="eyebrow">Coba sendiri</span><h2>Simulasi: Cocokkan Bahan</h2></div><button class="secondary" onclick="go('menu')">⌂ Menu utama</button></div>
+ <p>Pilih satu bahan, lalu pilih contoh produk yang paling sesuai. Pasangan ini merupakan contoh umum; bahan tertentu dapat digunakan untuk beberapa produk.</p>
+ <div class="card"><div class="topline"><strong id="simProgress">Pasangan 1 dari 6</strong><span class="pill" id="simScore">Benar: 0</span></div><div class="progress"><div id="simBar"></div></div><div id="simQuestion"></div><div class="choice-list" id="simChoices"></div><div id="simFeedback" class="feedback" hidden></div><div class="navrow"><button class="secondary" onclick="resetSimulation()">↻ Ulangi simulasi</button><button id="simNext" onclick="nextSimulation()" disabled>Berikutnya →</button></div></div>
+ <div class="note"><strong>Tantangan berpikir kritis:</strong> Mengapa batu lebih cocok untuk mozaik atau hiasan taman daripada keranjang anyaman? Pertimbangkan kekerasan, kelenturan, bentuk, dan alat yang diperlukan.</div>
+</section>
+<section class="screen" id="kuis">
+ <div class="topline"><div><span class="eyebrow">Uji pemahaman</span><h2>Kuis Interaktif</h2></div><button class="secondary" onclick="go('menu')">⌂ Menu utama</button></div>
+ <div id="quizArea"></div>
+</section>
+<section class="screen" id="profil">
+ <div class="topline"><div><span class="eyebrow">Tentang MPI</span><h2>Profil dan Petunjuk</h2></div><button class="secondary" onclick="go('menu')">⌂ Menu utama</button></div>
+ <div class="grid">
+  <div class="card"><div class="big-emoji">🏫</div><h3>Identitas</h3><p><strong>PKBM LEMBONG CENTER KOLAKA UTARA</strong><br>Mata pelajaran: Prakarya-Kerajinan<br>Jenjang: Kelas VII / Paket B<br>Kurikulum: Merdeka · Fase D</p></div>
+  <div class="card"><div class="big-emoji">💡</div><h3>Cara menggunakan</h3><ol><li>Pilih menu Materi dan pelajari setiap tab.</li><li>Kerjakan Simulasi mencocokkan bahan.</li><li>Jawab tiga soal kuis.</li><li>Baca umpan balik dan ulangi jika perlu.</li></ol></div>
+ </div>
+ <div class="note"><strong>Catatan pembelajaran:</strong> Pengelompokan semikeras dan keras bersifat praktis. Sifat bahan dipengaruhi bagian, usia, kondisi, dan cara pengolahan. Ikon bahan dalam MPI adalah simbol edukatif, bukan logo sertifikasi resmi.</div>
+ <button onclick="go('menu')">Kembali ke Menu Utama</button>
+</section>
+</main>
+<footer>MPI Prakarya-Kerajinan Kelas VII · PKBM LEMBONG CENTER KOLAKA UTARA · Dapat digunakan secara lokal/offline</footer>
+<script>
+const materials = [
+ {name:'Bambu',icon:'🎋',kind:'Semikeras (bergantung kondisi)',trait:'Batang bambu cukup kuat; bagian tertentu dapat dibelah dan dianyam.',products:['Tempat pensil','Anyaman / keranjang','Alat musik sederhana'],correct:'Anyaman / keranjang'},
+ {name:'Rotan',icon:'🧺',kind:'Semikeras / lentur',trait:'Rotan relatif lentur dan kuat sehingga cocok untuk dianyam atau dibentuk.',products:['Keranjang anyaman','Mozaik batu','Mangkuk tempurung'],correct:'Keranjang anyaman'},
+ {name:'Kayu',icon:'🪵',kind:'Keras',trait:'Kayu memiliki kekuatan dan dapat dipotong, dipahat, atau diukir dengan alat yang sesuai.',products:['Ukiran / miniatur','Anyaman rotan','Hiasan dari cangkang'],correct:'Ukiran / miniatur'},
+ {name:'Tempurung kelapa',icon:'🥥',kind:'Keras',trait:'Tempurung kelapa keras, cukup kuat, dan dapat diolah setelah dibersihkan.',products:['Mangkuk / aksesori','Keranjang rotan','Mozaik batu'],correct:'Mangkuk / aksesori'},
+ {name:'Batu',icon:'🪨',kind:'Keras',trait:'Batu umumnya keras dan kaku; dapat disusun, dipoles, atau dipahat dengan alat yang tepat.',products:['Mozaik / hiasan taman','Keranjang anyaman','Tempat pensil dari anyaman'],correct:'Mozaik / hiasan taman'},
+ {name:'Cangkang kerang',icon:'🐚',kind:'Keras dan rapuh pada bagian tertentu',trait:'Cangkang kerang dapat menjadi hiasan; penanganannya perlu hati-hati karena bisa pecah atau tajam.',products:['Hiasan / aksesori','Keranjang besar','Alat musik bambu'],correct:'Hiasan / aksesori'}
+];
+let simOrder=[],simIndex=0,simRight=0,simAnswered=false,simFinished=false;
+const quiz = [
+ {q:'Bahan alam manakah yang relatif lentur dan sering digunakan untuk membuat keranjang anyaman?',opts:['Batu','Rotan','Kaca','Batu bata'],ans:1,explain:'Rotan relatif lentur sehingga sesuai untuk berbagai produk anyaman.'},
+ {q:'Bahan alam keras yang dapat dipahat menjadi patung atau ukiran adalah ...',opts:['Daun pisang','Kapas','Batu','Benang'],ans:2,explain:'Batu dapat dipahat atau diukir menggunakan alat dan teknik yang sesuai.'},
+ {q:'Ikon tempurung kelapa pada MPI menunjukkan bahan yang berasal dari ...',opts:['Plastik','Logam','Bahan sintetis','Buah kelapa'],ans:3,explain:'Tempurung kelapa merupakan bagian keras dari buah kelapa dan dapat dimanfaatkan untuk kerajinan.'}
+];
+let qi=0,answers=[null,null,null],checked=[false,false,false],soundOn=false;
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='materi'&&!document.getElementById('tabContent').innerHTML)showTab('pengertian',document.querySelector('[data-tab="pengertian"]'));}
+function say(text){if(soundOn&&'speechSynthesis'in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='id-ID';speechSynthesis.speak(u)}}
+document.getElementById('soundBtn').addEventListener('click',()=>{soundOn=!soundOn;let b=document.getElementById('soundBtn');b.textContent=soundOn?'🔊 Suara: aktif':'🔊 Suara: mati';b.setAttribute('aria-pressed',soundOn?'true':'false');if(soundOn)say('Audio narasi diaktifkan.');else if('speechSynthesis'in window)speechSynthesis.cancel()});
+function showTab(tab,btn){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b===btn));let c=document.getElementById('tabContent');const content={
+pengertian:`<div class="card"><div class="material"><div class="material-icon">🌿</div><div><h3>Apa itu bahan alam?</h3><p>Bahan alam adalah bahan yang berasal dari lingkungan alam dan dapat dimanfaatkan untuk membuat kerajinan setelah melalui proses pengolahan. Bahan dipilih berdasarkan sifat, ketersediaan, fungsi produk, keamanan, dan dampak lingkungan.</p></div></div><div class="note"><strong>Ingat:</strong> “Semikeras” dan “keras” adalah pengelompokan praktis berdasarkan sifat bahan. Satu bahan dapat memiliki sifat berbeda bergantung bagian, usia, dan kondisinya.</div></div>`,
+semikeras:`<div class="grid"><div class="card"><div class="material"><div class="material-icon">🎋</div><div><h3>Bambu</h3><span class="pill">Relatif kuat</span><p>Batang dapat dibelah, dipotong, disusun, atau dianyam.</p><p><strong>Contoh:</strong> tempat pensil, wadah, hiasan, alat musik.</p></div></div></div><div class="card"><div class="material"><div class="material-icon">🧺</div><div><h3>Rotan</h3><span class="pill">Relatif lentur</span><p>Mudah dibentuk dengan teknik anyaman sesuai ukuran dan kondisinya.</p><p><strong>Contoh:</strong> keranjang, wadah, dekorasi.</p></div></div></div></div><p class="muted">Sifat semikeras bukan kategori yang mutlak. Bambu tua, misalnya, dapat sangat keras; rotan juga memiliki variasi kelenturan.</p>`,
+keras:`<div class="grid three"><div class="card"><div class="big-emoji">🪵</div><h3>Kayu</h3><p>Kuat dan dapat dipotong, dipahat, atau diukir.</p><strong>Produk:</strong> ukiran, miniatur, hiasan.</div><div class="card"><div class="big-emoji">🥥</div><h3>Tempurung kelapa</h3><p>Keras, perlu dibersihkan dan dibentuk dengan alat sesuai.</p><strong>Produk:</strong> mangkuk, aksesori, hiasan.</div><div class="card"><div class="big-emoji">🪨</div><h3>Batu</h3><p>Keras dan kaku; cocok untuk disusun, dipoles, atau dipahat.</p><strong>Produk:</strong> mozaik, hiasan taman.</div><div class="card"><div class="big-emoji">🐚</div><h3>Cangkang kerang</h3><p>Keras tetapi dapat rapuh atau tajam jika pecah.</p><strong>Produk:</strong> hiasan dan aksesori.</div></div><div class="note">Gunakan alat dengan pendampingan orang dewasa. Hindari mengambil batu atau kerang dari kawasan lindung dan habitat yang sensitif.</div>`,
+logo:`<div class="card"><h3>Galeri logo/ikon bahan alam</h3><p>Ikon di bawah adalah simbol edukatif untuk membantu mengenali bahan, bukan tanda sertifikasi resmi.</p><div class="grid three">${materials.map(m=>`<div class="card" style="text-align:center;background:#f7fbf8"><div class="big-emoji">${m.icon}</div><strong>${m.name}</strong><p class="muted">${m.kind}</p><button class="secondary" onclick="showDetail('${m.name}')">Lihat detail</button></div>`).join('')}</div><div id="detailBox" class="feedback" hidden></div></div>`
+};c.innerHTML=content[tab];}
+function showDetail(name){let m=materials.find(x=>x.name===name),box=document.getElementById('detailBox');box.hidden=false;box.innerHTML=`<strong>${m.icon} ${m.name} — ${m.kind}</strong><p>${m.trait}</p><p><strong>Contoh:</strong> ${m.correct}</p>`;}
+function startSimulation(){simOrder=[...materials].sort(()=>Math.random()-.5);simIndex=0;simRight=0;simAnswered=false;simFinished=false;renderSim();go('simulasi')}
+function resetSimulation(){startSimulation()}
+function renderSim(){const q=document.getElementById('simQuestion'),choices=document.getElementById('simChoices'),fb=document.getElementById('simFeedback'),next=document.getElementById('simNext');fb.hidden=true;next.disabled=true;simAnswered=false;if(simIndex>=simOrder.length){document.getElementById('simProgress').textContent='Simulasi selesai';document.getElementById('simBar').style.width='100%';q.innerHTML=`<div class="result"><div class="score">${simRight}/${simOrder.length}</div><h3>Pasangan benar</h3><p>${simRight===6?'Hebat! Semua pasangan benar.':'Terus berlatih. Amati kembali sifat setiap bahan.'}</p></div>`;choices.innerHTML='';next.textContent='Lanjut ke Kuis →';next.disabled=false;next.onclick=()=>{startQuiz();};return}
+let m=simOrder[simIndex];document.getElementById('simProgress').textContent=`Pasangan ${simIndex+1} dari ${simOrder.length}`;document.getElementById('simScore').textContent=`Benar: ${simRight}`;document.getElementById('simBar').style.width=(simIndex/simOrder.length*100)+'%';q.innerHTML=`<div class="material"><div class="material-icon">${m.icon}</div><div><h3>${m.name}</h3><p>${m.trait}</p><strong>Pilih produk yang paling sesuai:</strong></div></div>`;let opts=[m.correct,...materials.filter(x=>x.name!==m.name).map(x=>x.correct)].sort(()=>Math.random()-.5);choices.innerHTML=opts.map((o,i)=>`<button class="choice" data-option="${o.replaceAll('&','&amp;').replaceAll('"','&quot;')}" onclick="checkSim(this)">${String.fromCharCode(65+i)}. ${o}</button>`).join('');next.textContent=simIndex===simOrder.length-1?'Lihat Hasil →':'Berikutnya →';next.onclick=nextSimulation;}
+function checkSim(btn){if(simAnswered)return;simAnswered=true;let m=simOrder[simIndex],correct=btn.dataset.option===m.correct;document.querySelectorAll('#simChoices .choice').forEach(b=>{b.disabled=true;if(b.dataset.option===m.correct)b.classList.add('correct')});if(correct){simRight++;btn.classList.add('correct')}else btn.classList.add('wrong');let fb=document.getElementById('simFeedback');fb.hidden=false;fb.innerHTML=`<strong>${correct?'Benar!':'Belum tepat.'}</strong> ${m.name}: ${m.correct}. ${m.trait}`;document.getElementById('simScore').textContent=`Benar: ${simRight}`;document.getElementById('simNext').disabled=false;say(correct?'Benar. Bagus!':'Belum tepat. Perhatikan kembali karakteristik bahan.')}
+function nextSimulation(){simIndex++;renderSim()}
+function startQuiz(){qi=0;answers=[null,null,null];checked=[false,false,false];renderQuiz();go('kuis')}
+function renderQuiz(){let area=document.getElementById('quizArea');if(qi>=3){let n=answers.reduce((s,a,i)=>s+(a===quiz[i].ans?1:0),0);area.innerHTML=`<div class="result"><div class="big-emoji">🏆</div><h2>Kuis Selesai!</h2><div class="score">${Math.round(n/3*100)}</div><p>Nilai kamu · ${n} dari 3 jawaban benar</p><p>${n===3?'Hebat! Kamu sudah memahami materi.':n===2?'Bagus! Pelajari kembali bagian yang belum tepat.':'Tetap semangat. Buka materi dan coba lagi.'}</p><div class="navrow" style="justify-content:center"><button onclick="startQuiz()">↻ Ulangi Kuis</button><button class="secondary" onclick="go('menu')">Kembali ke Menu</button></div></div>`;return}
+let q=quiz[qi];area.innerHTML=`<div class="card"><div class="topline"><span class="pill">Soal ${qi+1} dari 3</span><span>Skor maksimum 100</span></div><div class="progress"><div style="width:${(qi+1)/3*100}%"></div></div><h3>${q.q}</h3><div class="choice-list">${q.opts.map((o,i)=>`<button class="choice ${answers[qi]===i?'selected':''}" ${checked[qi]?'disabled':''} onclick="pickAnswer(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div id="quizFeedback" class="feedback" ${checked[qi]?'':'hidden'}>${checked[qi]?`<strong>${answers[qi]===q.ans?'Jawaban benar!':'Jawaban belum tepat.'}</strong> ${q.explain}`:''}</div><div class="navrow"><button class="secondary" onclick="go('materi')">Buka Materi</button>${checked[qi]?`<button onclick="qi++;renderQuiz()">${qi===2?'Lihat Hasil':'Soal Berikutnya →'}</button>`:`<button onclick="checkAnswer()" ${answers[qi]===null?'disabled':''}>Periksa Jawaban</button>`}</div></div>`}
+function pickAnswer(i){if(checked[qi])return;answers[qi]=i;renderQuiz()}
+function checkAnswer(){if(answers[qi]===null)return;checked[qi]=true;renderQuiz()}
+showTab('pengertian',document.querySelector('[data-tab="pengertian"]'));
+</script>
+</body>
+</html>
